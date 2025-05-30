@@ -1,12 +1,13 @@
 import express from 'express';
-import * as articleController from '../controllers/articleController.js';
+import * as journalistController from '../controllers/journalistController.js';
 
 const router = express.Router();
 
-router.get('/', articleController.getAllArticles);
-router.get('/:id', articleController.getArticleById);
-router.post('/', articleController.createArticle);
-router.put('/:id', articleController.updateArticle);
-router.delete('/:id', articleController.deleteArticle);
+router.get('/', journalistController.getAllJournalists);
+router.get('/:id', journalistController.getJournalistById);
+router.post('/', journalistController.createJournalist);
+router.put('/:id', journalistController.updateJournalist);
+router.delete('/:id', journalistController.deleteJournalist);
+router.get('/:id/articles', journalistController.getArticlesByJournalist);
 
 export default router;

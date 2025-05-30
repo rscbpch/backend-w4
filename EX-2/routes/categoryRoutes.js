@@ -1,12 +1,13 @@
 import express from 'express';
-import * as articleController from '../controllers/articleController.js';
+import * as categoryController from '../controllers/categoryController.js';
 
 const router = express.Router();
 
-router.get('/', articleController.getAllArticles);
-router.get('/:id', articleController.getArticleById);
-router.post('/', articleController.createArticle);
-router.put('/:id', articleController.updateArticle);
-router.delete('/:id', articleController.deleteArticle);
+router.get('/', categoryController.getAllCategories);
+router.get('/:id', categoryController.getCategoryById);
+router.post('/', categoryController.createCategory);
+router.put('/:id', categoryController.updateCategory);
+router.delete('/:id', categoryController.deleteCategory);
+router.get('/:id/articles', categoryController.getArticlesByCategory);
 
 export default router;

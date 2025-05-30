@@ -1,7 +1,20 @@
 import { articles } from '../models/data.js';
 
 export function getAllArticles(req, res) {
-    res.json(articles);
+  let filtered = articles;
+
+  const journalistId = parseInt(req.query.journalistId);
+  const categoryId = parseInt(req.query.categoryId);
+
+  if (journalistId) {
+    filtered = filtered.filter(article => article.journalistId === journalistId);
+  }
+
+  if (categoryId) {
+    filtered = filtered.filter(article => article.categoryId === categoryId);
+  }
+
+  res.json(filtered);
 }
 
 export function getArticleById(req, res) {
